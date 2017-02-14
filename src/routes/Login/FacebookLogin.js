@@ -8,7 +8,7 @@ const { LoginManager, AccessToken, GraphRequest, GraphRequestManager } = FBSDK
 export default class FacebookLogin extends Component {
   getUserInfo (token) {
     let options = { parameters: {
-      fields: { string: 'first_name, last_name, picture.width(800), gender, email, about' }
+      fields: { string: 'first_name, last_name, picture.width(800), email' }
     }}
 
     let infoRequest = new GraphRequest('/me', options, (error, result) => {

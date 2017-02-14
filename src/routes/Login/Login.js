@@ -25,7 +25,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginUser: React.PropTypes.func.isRequired
+  // loginUser: React.PropTypes.func.isRequired
 }
 
 var styles = StyleSheet.create({

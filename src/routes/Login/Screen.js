@@ -10,10 +10,11 @@ let connectState = state => ({ currentUser: UserSelectors.current(state) })
 let enhancer = connect(connectState, connectProps)
 
 class LoginScreen extends Component {
-  static route = {
-    navigationBar: {
-
-    }
+  static navigationOptions = {
+    header: (navigation, defaultHeader) => ({
+      ...defaultHeader,
+      visible: false
+    })
   }
 
   render () {

@@ -1,7 +1,9 @@
-import MainScreen from './MainScreen'
-import SecondScreen from './SecondScreen'
+import HomeScreen from './Home/Screen'
+import LoginScreen from './Login/Screen'
 
-const Router = {
+const routes = {
+  Home: { screen: HomeScreen },
+  Login: { screen: LoginScreen }
 }
 
-export default Router
+export default routes
