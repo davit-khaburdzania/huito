@@ -1,9 +1,7 @@
-// import { createRouter } from '@exponent/ex-navigation'
-//
-// import HousesScreen from './Houses/Screen'
-//
-// const Router = createRouter(() => ({
-//   houses: () => HousesScreen
-// }))
-//
-// export default Router
+import MainScreen from './MainScreen'
+import SecondScreen from './SecondScreen'
+
+const Router = {
+}
+
+export default Router
