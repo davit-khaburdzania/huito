@@ -51,7 +51,6 @@
 		931997CF25B6489D983B8DA6 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 754DC7F9B9F3480DA88AF3D6 /* Zocial.ttf */; };
 		A0CC78AA3960453E8BA9FE56 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2DB04CDA1C44F4B0402243 /* libRCTFBSDK.a */; };
 		C8215CBC02DE4ED493ED7294 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB1673FC34DA4519A5FC25B7 /* Entypo.ttf */; };
-		E1CC41301E52C8960062C21C /* libRCTAutoComplete.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CC41171E52C88F0062C21C /* libRCTAutoComplete.a */; };
 		F3888495688D4636876117E1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00D2C39B05D44D158C3E2148 /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -259,13 +258,6 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		E1CC41161E52C88F0062C21C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CC410F1E52C88F0062C21C /* RCTAutoComplete.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTAutoComplete;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -310,7 +302,6 @@
 		CB1673FC34DA4519A5FC25B7 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D34A6E0BBCAC4E648BC31BDD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D9AEF381BA7F4CFA9AC42FEC /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		E1CC410F1E52C88F0062C21C /* RCTAutoComplete.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAutoComplete.xcodeproj; path = "../node_modules/react-native-autocomplete/RCTAutoComplete.xcodeproj"; sourceTree = "<group>"; };
 		EC2DB04CDA1C44F4B0402243 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,7 +318,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CC41301E52C8960062C21C /* libRCTAutoComplete.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				62F4ECA01E52207D00F1CD29 /* FBSDKLoginKit.framework in Frameworks */,
@@ -544,7 +534,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E1CC410F1E52C88F0062C21C /* RCTAutoComplete.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -592,14 +581,6 @@
 				00E356EE1AD99517003FC87E /* huitoTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* huito-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* huito-tvOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E1CC41101E52C88F0062C21C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E1CC41171E52C88F0062C21C /* libRCTAutoComplete.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -722,10 +703,6 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
-				},
-				{
-					ProductGroup = E1CC41101E52C88F0062C21C /* Products */;
-					ProjectRef = E1CC410F1E52C88F0062C21C /* RCTAutoComplete.xcodeproj */;
 				},
 				{
 					ProductGroup = 62F4EC7B1E521D4B00F1CD29 /* Products */;
@@ -970,13 +947,6 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CC41171E52C88F0062C21C /* libRCTAutoComplete.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTAutoComplete.a;
-			remoteRef = E1CC41161E52C88F0062C21C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

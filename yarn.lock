@@ -3584,6 +3584,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-autocomplete-input@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-input/-/react-native-autocomplete-input-3.0.0.tgz#8efc953053e8c9182827c6f81c2eb4a5431fa50d"
+
 react-native-autocomplete@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/react-native-autocomplete/-/react-native-autocomplete-0.2.2.tgz#df12fc33fe3f2c4c4df40bc1a166049deaaf523d"

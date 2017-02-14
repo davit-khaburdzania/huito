@@ -31,7 +31,7 @@ class App extends Component {
     let initialRouteName = this.props.currentUser ? 'Home' : 'Login'
 
     let Navigation = StackNavigator(routes, {
-      initialRouteName
+      initialRouteName: 'Activity'
     })
 
     return (

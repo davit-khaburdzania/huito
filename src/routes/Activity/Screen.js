@@ -1,105 +1,139 @@
 import React from 'react'
-import { View, Text, TextInput, StyleSheet, AlertIOS, } from 'react-native'
-import AutoComplete from 'react-native-autocomplete'
+import Autocomplete from 'react-native-autocomplete-input'
 
-const Countries = [
-  {name: 'Belarus', code: 'BY'}, 
-  {name: 'Belgium', code: 'BE'}, 
-  {name: 'Belize', code: 'BZ'}, 
-  {name: 'Benin', code: 'BJ'}, 
-  {name: 'Bermuda', code: 'BM'}, 
-  {name: 'Bhutan', code: 'BT'}, 
-  {name: 'Bolivia', code: 'BO'}, 
-  {name: 'Bosnia and Herzegovina', code: 'BA'}, 
-  {name: 'Botswana', code: 'BW'}, 
-  {name: 'Bouvet Island', code: 'BV'}, 
-  {name: 'Brazil', code: 'BR'}, 
-  {name: 'British Indian Ocean Territory', code: 'IO'}, 
-  {name: 'Brunei Darussalam', code: 'BN'}, 
-  {name: 'Bulgaria', code: 'BG'}, 
-  {name: 'Burkina Faso', code: 'BF'}, 
-  {name: 'Burundi', code: 'BI'}, 
-]
-
-const styles = StyleSheet.create({
-  autocomplete: {
-    alignSelf: 'stretch',
-    height: 50,
-    backgroundColor: '#FFF',
-    borderColor: 'lightblue',
-    borderWidth: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginBottom: 10,
-    marginTop: 50,
-  },
-});
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Button
+} from 'react-native'
 
 export default class ActivityScreen extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      name: ''
+      friends: [],
+      selectedFriends: [],
+      query: ''
     }
   }
 
-  onTyping(text) {
-    const countries = Countries
-      .filter(country => country.name.toLowerCase().startsWith(text.toLowerCase()))
-      .map(country => country.name);
+  componentDidMount() {
+    const friends = [
+      { id: 1, avatar: 'https://dummyimage.com/100x100/000/fff', name: 'Irakli Lekishvili', },
+      { id: 2, avatar: 'https://dummyimage.com/100x100/000/fff', name: 'Zaal Kavelashvili' },
+      { id: 3, avatar: 'https://dummyimage.com/100x100/000/fff', name: 'Davit Khaburdzania' },
+      { id: 4, avatar: 'https://dummyimage.com/100x100/000/fff', name: 'Oto Vacheishvili' }
+    ]
 
-    this.setState({ data: countries });
+    this.setState({ friends })
+  }
+
+  selectFriend(friend) {
+    let { selectedFriends, friends } = this.state
+    friends = friends.filter(x => x.id !== friend.id)
+    selectedFriends.push(friend)
+    this.setState({ selectedFriends, friends })
+  }
+
+  deselectFriend(friend) {
+    let { selectedFriends, friends } = this.state
+    selectedFriends = selectedFriends.filter(x => x.id !== friend.id)
+    friends.push(friend)
+    this.setState({ selectedFriends, friends })
+  }
+
+  findFilm(query) {
+    if (query === '') return []
+
+    const { friends } = this.state
+    const regex = new RegExp(`${query.trim()}`, 'i')
+    return friends.filter(film => film.name.search(regex) >= 0)
   }
 
   render() {
+    const { query, selectedFriends } = this.state
+    const friends = this.findFilm(query)
+    const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim()
+
     return (
-      <View>
-        <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1, marginTop: 0}}
-          placeholder='activity name'
-          value={this.state.name}
-          onChangeText={name => this.setState({ name })}
+      <View style={styles.container}>
+        <Autocomplete
+          autoCapitalize="none"
+          autoCorrect={false}
+          containerStyle={styles.autocompleteContainer}
+          data={friends.length === 1 && comp(query, friends[0].name) ? [] : friends}
+          defaultValue={query}
+          onChangeText={text => this.setState({ query: text })}
+          placeholder='Select your favorite friends'
+          renderItem={friend => (
+            <TouchableOpacity onPress={this.selectFriend.bind(this, friend)}>
+              <Image
+                style={{width: 50, height: 50}}
+                source={{uri: friend.avatar}}
+              />
+              <Text style={styles.itemText}>
+                {friend.name}
+              </Text>
+            </TouchableOpacity>
+          )}
         />
-        <AutoComplete
-          onTyping={this.onTyping.bind(this)}
-          onSelect={e => AlertIOS.alert('You choosed', e)}
-          onFocus={() => AlertIOS.alert('Focus')}
-          onSubmitEditing={() => AlertIOS.alert('onSubmitEditing')}
-          style={styles.autocomplete}
-
-          suggestions={this.state.data}
-
-          placeholder="This is a great placeholder"
-          clearButtonMode="always"
-          returnKeyType="go"
-          textAlign="center"
-          clearTextOnFocus
-
-          maximumNumberOfAutoCompleteRows={10}
-          applyBoldEffectToAutoCompleteSuggestions
-          reverseAutoCompleteSuggestionsBoldEffect
-          showTextFieldDropShadowWhenAutoCompleteTableIsOpen={false}
-          autoCompleteTableViewHidden={false}
-
-          autoCompleteTableBorderColor="lightblue"
-          autoCompleteTableBackgroundColor="azure"
-          autoCompleteTableCornerRadius={10}
-          autoCompleteTableBorderWidth={1}
-
-          autoCompleteRowHeight={35}
-
-          autoCompleteFontSize={15}
-          autoCompleteRegularFontName="Helvetica Neue"
-          autoCompleteBoldFontName="Helvetica Bold"
-          autoCompleteTableCellTextColor={'red'}
-        />
+        {selectedFriends.map(friend =>
+          <View key={friend.id}>
+            <Image
+              style={{width: 50, height: 50}}
+              source={{uri: friend.avatar}}
+            />
+            <Text key={friend.id}>{friend.name}</Text>
+            <Button onPress={this.deselectFriend.bind(this, friend)} title='Remove' />
+          </View>
+        )
+        }
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#F5FCFF',
+    flex: 1,
+    paddingTop: 25
+  },
+  autocompleteContainer: {
+    marginLeft: 10,
+    marginRight: 10
+  },
+  itemText: {
+    fontSize: 15,
+    margin: 2
+  },
+  descriptionContainer: {
+    // `backgroundColor` needs to be set otherwise the
+    // autocomplete input will disappear on text input.
+    backgroundColor: '#F5FCFF',
+    marginTop: 8
+  },
+  infoText: {
+    textAlign: 'center'
+  },
+  titleText: {
+    fontSize: 18,
+    fontWeight: '500',
+    marginBottom: 10,
+    marginTop: 10,
+    textAlign: 'center'
+  },
+  directorText: {
+    color: 'grey',
+    fontSize: 12,
+    marginBottom: 10,
+    textAlign: 'center'
+  },
+  openingText: {
+    textAlign: 'center'
+  }
+})
