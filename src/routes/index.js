@@ -1,7 +1,10 @@
-import MainScreen from './MainScreen'
-import SecondScreen from './SecondScreen'
+import Activity from './Activity/Screen'
 
 const Router = {
+  Activity: {
+    screen: Activity,
+    navigationOptions: { title: 'Activity' }
+  }
 }
 
 export default Router
