@@ -3588,10 +3588,6 @@ react-native-autocomplete-input@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-autocomplete-input/-/react-native-autocomplete-input-3.0.0.tgz#8efc953053e8c9182827c6f81c2eb4a5431fa50d"
 
-react-native-autocomplete@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/react-native-autocomplete/-/react-native-autocomplete-0.2.2.tgz#df12fc33fe3f2c4c4df40bc1a166049deaaf523d"
-
 react-native-debugger-open@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/react-native-debugger-open/-/react-native-debugger-open-0.3.2.tgz#ac90d33e97ab9aa9f815eb8c9f6f9efb4a09a733"
@@ -3618,6 +3614,10 @@ react-native-fbsdk@^0.5.0:
 react-native-tab-view@^0.0.55:
   version "0.0.55"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.55.tgz#6e82c50f916b46e0a5af2f9748e6aca36d58f7ad"
+
+react-native-tag-input@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/react-native-tag-input/-/react-native-tag-input-0.0.14.tgz#742112640a73d11fa8ae87383458c8fc00739775"
 
 react-native-vector-icons@^4.0.0:
   version "4.0.0"

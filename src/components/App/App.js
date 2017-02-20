@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   render () {
-    let initialRouteName = this.props.currentUser ? 'Home' : 'Login'
+    let initialRouteName = this.props.currentUser ? 'Activity' : 'Login'
 
     let Navigation = StackNavigator(routes, {
       initialRouteName: 'Activity'

@@ -53,7 +53,7 @@ export default class FriendsSelect extends React.Component {
     const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim()
 
     return (
-      <View>
+      <View style={{marginTop: 50}}>
         <Autocomplete
           containerStyle={styles.autocompleteContainer}
           data={friends.length === 1 && comp(query, friends[0].name) ? [] : friends}
